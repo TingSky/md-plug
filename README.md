@@ -1,3 +1,3 @@
 md-plug
 =======
-just a css and js
+A beautiful md stylesheet and some javascript code
