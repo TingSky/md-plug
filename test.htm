@@ -1,330 +1,417 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0039)http://web.open.xunlei.com/doc/php.html -->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>迅雷PHP编码规范.0815</title>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>迅雷PHP编码规范.0815</title>
 
-<script src="md-list.js" /></script>
-<link rel="stylesheet" href="md-style.css" />
+  <script src="md-list.js" /></script>
+  <link rel="stylesheet" href="md-style.css" />
 
 </head>
 <body youdao="bind">
-<h1>迅雷前端PHP书写规范V1.2</h1>
+  <h1>迅雷前端PHP书写规范V1.2</h1>
 
-<hr><table>
-<tbody><tr>
-<td>修订版本</td>
-  <td>制定</td>
-  <td>审核确认</td>
-  <td>修改时间</td>
-</tr>
-<tr>
-<td>V1.2</td>
-  <td>迅雷WEB工程师协会</td>
-  <td>迅雷网络技术发展委员会</td>
-  <td>2013-08-15</td>
-</tr>
-</tbody></table><h2>前言</h2>
+  <hr>
+  <table>
+    <tbody>
+      <tr>
+        <td>修订版本</td>
+        <td>制定</td>
+        <td>审核确认</td>
+        <td>修改时间</td>
+      </tr>
+      <tr>
+        <td>V1.2</td>
+        <td>迅雷WEB工程师协会</td>
+        <td>迅雷网络技术发展委员会</td>
+        <td>2013-08-15</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>前言</h2>
 
-<p>编码风格没有太多的好坏之分, 最重要的是风格保持一致，编码规范有助于统一我们编码的风格，形成共同的思维环境，使代码具有更好的可读性，不至于大部分开发时间都花在理解代码上。</p>
+  <p>
+    编码风格没有太多的好坏之分, 最重要的是风格保持一致，编码规范有助于统一我们编码的风格，形成共同的思维环境，使代码具有更好的可读性，不至于大部分开发时间都花在理解代码上。
+  </p>
 
-<p><strong>每条规范默认强制执行，如后面带有“建议”则代表推荐执行但不强制</strong></p>
+  <p> <strong>每条规范默认强制执行，如后面带有“建议”则代表推荐执行但不强制</strong>
+  </p>
 
-<h2>基础篇</h2>
+  <h2>基础篇</h2>
 
-<ul>
-<li><h3 id="sub_title_0">文件使用Unicode(UTF-8)编码保存，同时不要使用字节序标记(BOM)</h3></li>
-<li><h3 id="sub_title_1">使用Unix格式的行结束符(LF)(建议)</h3></li>
-<li>
-<h3 id="sub_title_2">所有的php文件省略php闭合标签</h3>
+  <ul>
+    <li>
+      <h3 id="sub_title_0">文件使用Unicode(UTF-8)编码保存，同时不要使用字节序标记(BOM)</h3>
+    </li>
+    <li>
+      <h3 id="sub_title_1">使用Unix格式的行结束符(LF)(建议)</h3>
+    </li>
+    <li>
+      <h3 id="sub_title_2">所有的php文件省略php闭合标签</h3>
 
-<blockquote>
-<p>如果使用闭合标签，任何由开发者、用户、或者FTP应用程序插入闭合标签后面的空格都有可能引起多余的输出、php错误、之后的输出无法显示或空白页。因此建议所有的php文件都省闭合标签。并插入一段注释来标明这是文件底部并定位这个文件在项目中的相对路径。</p>
-</blockquote>
+      <blockquote>
+        <p>
+          如果使用闭合标签，任何由开发者、用户、或者FTP应用程序插入闭合标签后面的空格都有可能引起多余的输出、php错误、之后的输出无法显示或空白页。因此建议所有的php文件都省闭合标签。并插入一段注释来标明这是文件底部并定位这个文件在项目中的相对路径。
+        </p>
+      </blockquote>
 
-<p>不当的:</p>
+      <p>不当的:</p>
 
-<div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+      <div class="highlight">
+        <pre><span class="o">&lt;?</span><span class="nx">php</span>
     <span class="nx">your</span> <span class="nx">code</span><span class="p">;</span>
 <span class="cp">?&gt;</span><span class="x"></span>
-</pre></div>
+</pre>
+      </div>
 
-<p>恰当的:</p>
+      <p>恰当的:</p>
 
-<div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+      <div class="highlight">
+        <pre><span class="o">&lt;?</span><span class="nx">php</span>
     <span class="nx">your</span> <span class="nx">code</span><span class="p">;</span>
 <span class="cm">/*end of xxx.php*/</span>
 <span class="cm">/*Location:./model/xxx.php*/</span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_3">使用完整的php标记</h3>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_3">使用完整的php标记</h3>
 
-<blockquote>
-<p>不要使用php短标记，以免服务器不支持(即未打开short_open_tag)</p>
-</blockquote>
+      <blockquote>
+        <p>不要使用php短标记，以免服务器不支持(即未打开short_open_tag)</p>
+      </blockquote>
 
-<p>不正确的：</p>
+      <p>不正确的：</p>
 
-<div class="highlight"><pre><span class="o">&lt;?</span> <span class="k">echo</span> <span class="nv">$foo</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+      <div class="highlight">
+        <pre><span class="o">&lt;?</span> <span class="k">echo</span> <span class="nv">$foo</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
 <span class="cp">&lt;?</span><span class="o">=</span><span class="nv">$foo</span><span class="cp">?&gt;</span><span class="x"></span>
-</pre></div>
+</pre>
+      </div>
 
-<p>正确的：</p>
+      <p>正确的：</p>
 
-<div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nv">$foo</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_4">开发环境将php配置中error_reporting应该设置为<code>E_ALL</code>级别的日志。</h3>
+      <div class="highlight">
+        <pre><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nv">$foo</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_4">
+        开发环境将php配置中error_reporting应该设置为
+        <code>E_ALL</code>
+        级别的日志。
+      </h3>
 
-<blockquote>
-<p><code>E_NOTICE</code>级别的日志虽然算不上错误日志，但是却告诉了我们哪些地方存在安全隐患，例如：变量未初始化等等， 打开E_NOTICE有助于我们减少bug, 提前发现安全漏洞。</p>
-</blockquote>
-</li>
-</ul><h2>排版篇</h2>
+      <blockquote>
+        <p>
+          <code>E_NOTICE</code>
+          级别的日志虽然算不上错误日志，但是却告诉了我们哪些地方存在安全隐患，例如：变量未初始化等等， 打开E_NOTICE有助于我们减少bug, 提前发现安全漏洞。
+        </p>
+      </blockquote>
+    </li>
+  </ul>
+  <h2>排版篇</h2>
 
-<ul>
-<li><h3 id="sub_title_0">使用tab键缩进</h3></li>
-<li>
-<h3 id="sub_title_1">关键字与其右边的左括号之间有一个空格，而函数名与左括号之间无空格（建议）</h3>
+  <ul>
+    <li>
+      <h3 id="sub_title_0">使用tab键缩进</h3>
+    </li>
+    <li>
+      <h3 id="sub_title_1">关键字与其右边的左括号之间有一个空格，而函数名与左括号之间无空格（建议）</h3>
 
-<p>例如</p>
+      <p>例如</p>
 
-<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nv">$total</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <div class="highlight">
+        <pre><span class="k">if</span> <span class="p">(</span><span class="nv">$total</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">your</span> <span class="nx">code</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="k">function</span> <span class="nf">get_total_sales</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">your</span> <span class="nx">code</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_2">大括号位于一行的末尾，与右括号之间有一个空格，结束括号独占一行(建议)</h3>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_2">大括号位于一行的末尾，与右括号之间有一个空格，结束括号独占一行(建议)</h3>
 
-<div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$size</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <div class="highlight">
+        <pre><span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$size</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">your</span> <span class="nx">code</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_3">每行一条语句,不要在一行写多条语句</h3>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_3">每行一条语句,不要在一行写多条语句</h3>
 
-<p>不正确的:</p>
+      <p>不正确的:</p>
 
-<div class="highlight"><pre><span class="nv">$foo</span> <span class="o">=</span> <span class="s1">'this'</span><span class="p">;</span> <span class="nv">$bar</span> <span class="o">=</span> <span class="s1">'that'</span><span class="p">;</span> <span class="nv">$bat</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="nv">$foo</span><span class="p">,</span> <span class="nv">$bar</span><span class="p">,</span> <span class="nv">$bag</span><span class="p">);</span>
-</pre></div>
+      <div class="highlight">
+        <pre><span class="nv">$foo</span> <span class="o">=</span> <span class="s1">'this'</span><span class="p">;</span> <span class="nv">$bar</span> <span class="o">=</span> <span class="s1">'that'</span><span class="p">;</span> <span class="nv">$bat</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="nv">$foo</span><span class="p">,</span> <span class="nv">$bar</span><span class="p">,</span> <span class="nv">$bag</span><span class="p">);</span>
+</pre>
+      </div>
 
-<p>正确的:</p>
+      <p>正确的:</p>
 
-<div class="highlight"><pre><span class="nv">$foo</span> <span class="o">=</span> <span class="s1">'this'</span><span class="p">;</span>
+      <div class="highlight">
+        <pre><span class="nv">$foo</span> <span class="o">=</span> <span class="s1">'this'</span><span class="p">;</span>
 <span class="nv">$bar</span> <span class="o">=</span> <span class="s1">'that'</span><span class="p">;</span>
 <span class="nv">$bat</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="nv">$foo</span><span class="p">,</span> <span class="nv">$bar</span><span class="p">,</span> <span class="nv">$bag</span><span class="p">);</span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_4">函数参数中逗号后面应有一个空格，左右括号和参数之间无空格</h3>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_4">函数参数中逗号后面应有一个空格，左右括号和参数之间无空格</h3>
 
-<p>不当的：</p>
+      <p>不当的：</p>
 
-<div class="highlight"><pre><span class="k">function</span> <span class="nf">get_file_properties</span><span class="p">(</span><span class="nv">$type</span><span class="p">,</span><span class="nv">$state</span><span class="p">)</span><span class="c1">//逗号后面没有空格</span>
+      <div class="highlight">
+        <pre><span class="k">function</span> <span class="nf">get_file_properties</span><span class="p">(</span><span class="nv">$type</span><span class="p">,</span><span class="nv">$state</span><span class="p">)</span><span class="c1">//逗号后面没有空格</span>
 <span class="k">function</span> <span class="nf">get_file_properties</span><span class="p">(</span> <span class="nv">$type</span><span class="p">,</span><span class="nv">$state</span> <span class="p">)</span><span class="c1">//参数与括号之间不应有空格</span>
-</pre></div>
+</pre>
+      </div>
 
-<p>恰当的：</p>
+      <p>恰当的：</p>
 
-<div class="highlight"><pre><span class="k">function</span> <span class="nf">get_file_properties</span><span class="p">(</span><span class="nv">$type</span><span class="p">,</span> <span class="nv">$state</span><span class="p">)</span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_5">多行的”=”应对齐</h3>
+      <div class="highlight">
+        <pre><span class="k">function</span> <span class="nf">get_file_properties</span><span class="p">(</span><span class="nv">$type</span><span class="p">,</span> <span class="nv">$state</span><span class="p">)</span>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_5">多行的”=”应对齐</h3>
 
-<p>例如</p>
+      <p>例如</p>
 
-<div class="highlight"><pre><span class="nv">$page</span>   <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+      <div class="highlight">
+        <pre><span class="nv">$page</span>   <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 <span class="nv">$title</span>  <span class="o">=</span> <span class="s1">'Home Page'</span><span class="p">;</span>
 <span class="nv">$domain</span> <span class="o">=</span> <span class="s1">'xxx.com'</span><span class="p">;</span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_6">数组使用分行表述每个”key=&gt;value”,并且每行使用一个tab缩进，最后一个数据项后面的逗号不可省略</h3>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_6">数组使用分行表述每个”key=&gt;value”,并且每行使用一个tab缩进，最后一个数据项后面的逗号不可省略</h3>
 
-<div class="highlight"><pre><span class="nv">$arr</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <div class="highlight">
+        <pre><span class="nv">$arr</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'key'</span>    <span class="o">=&gt;</span> <span class="s1">'value1'</span><span class="p">,</span>
     <span class="s1">'index'</span>  <span class="o">=&gt;</span> <span class="s1">'value2'</span><span class="p">,</span>
 <span class="p">);</span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_7">在运算符之间使用空格</h3>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_7">在运算符之间使用空格</h3>
 
-<blockquote>
-<p>在比较运算符（&gt;、&lt;、&gt;=、&lt;=、==、===、!=、&lt;&gt;、!==）、赋值运算符（=）、数学运算符（+、-、*、/、%）、位运算符（&amp;、|、^、~、&gt;&gt;、&lt;&lt;）、逻辑运算符（!、&amp;&amp;、||）、冒号(:)、问号（?）、字符串连接运算符（.）、字符串连接赋值运算符(.=）前后，以及左括号（(）前（函数调用例外）、逗号（,）后请使用空格进行间隔。</p>
-</blockquote>
-</li>
-<li>
-<h3 id="sub_title_8">使用空行来划分逻辑上相关的代码</h3>
+      <blockquote>
+        <p>
+          在比较运算符（&gt;、&lt;、&gt;=、&lt;=、==、===、!=、&lt;&gt;、!==）、赋值运算符（=）、数学运算符（+、-、*、/、%）、位运算符（&amp;、|、^、~、&gt;&gt;、&lt;&lt;）、逻辑运算符（!、&amp;&amp;、||）、冒号(:)、问号（?）、字符串连接运算符（.）、字符串连接赋值运算符(.=）前后，以及左括号（(）前（函数调用例外）、逗号（,）后请使用空格进行间隔。
+        </p>
+      </blockquote>
+    </li>
+    <li>
+      <h3 id="sub_title_8">使用空行来划分逻辑上相关的代码</h3>
 
-<blockquote>
-<p>比如：变量声明部分和代码语句间的分隔；较长的方法中，完成不同功能的代码块间的分隔。</p>
-</blockquote>
-</li>
-</ul><h3>命名篇</h3>
+      <blockquote>
+        <p>比如：变量声明部分和代码语句间的分隔；较长的方法中，完成不同功能的代码块间的分隔。</p>
+      </blockquote>
+    </li>
+  </ul>
+  <h3>命名篇</h3>
 
-<ul>
-<li>
-<h3 id="sub_title_9">类、方法、函数、变量、文件命名规则：</h3>
+  <ul>
+    <li>
+      <h3 id="sub_title_9">类、方法、函数、变量、文件命名规则：</h3>
 
-<table>
-<tbody><tr>
-<td>结构</td>
-  <td>规则</td>
-  <td>例如</td>
-   </tr>
-<tr>
-<td>类</td>
-  <td>以大写字母开始的驼峰式</td>
-  <td>ClassNameLikeThis</td>
-   </tr>
-<tr>
-<td>方法</td>
-  <td>以小写字母开始的驼峰式</td>
-  <td>functionNameLikeThis</td>
-   </tr>
-<tr>
-<td>函数</td>
-  <td>以小写+下划线式</td>
-  <td>function_name_like_this</td>
-   </tr>
-<tr>
-<td>变量</td>
-  <td>以小写字母开始的驼峰式</td>
-  <td>nameLikeThis</td>
-   </tr>
-<tr>
-<td>常量</td>
-  <td>全大写，单词间用_拼接</td>
-  <td>NAME_LIKE_THIS</td>
-   </tr>
-<tr>
-<td>文件名</td>
-  <td>全小写，单词间可用_拼接</td>
-  <td>filename_like_this</td>
-   </tr>
-</tbody></table>
-</li>
-<li><h3 id="sub_title_10">命名使用有意义的英语单词或单词缩写（建议）</h3></li>
-<li><h3 id="sub_title_11">全局变量一律使用g_开头</h3></li>
-<li><h3 id="sub_title_12">常量必须用define表示，命名全部使用大写字母，单词之间以’_’连接</h3></li>
-<li>
-<h3 id="sub_title_13">预定义变量一律使用短格式</h3>
+      <table>
+        <tbody>
+          <tr>
+            <td>结构</td>
+            <td>规则</td>
+            <td>例如</td>
+          </tr>
+          <tr>
+            <td>类</td>
+            <td>以大写字母开始的驼峰式</td>
+            <td>ClassNameLikeThis</td>
+          </tr>
+          <tr>
+            <td>方法</td>
+            <td>以小写字母开始的驼峰式</td>
+            <td>functionNameLikeThis</td>
+          </tr>
+          <tr>
+            <td>函数</td>
+            <td>以小写+下划线式</td>
+            <td>function_name_like_this</td>
+          </tr>
+          <tr>
+            <td>变量</td>
+            <td>以小写字母开始的驼峰式</td>
+            <td>nameLikeThis</td>
+          </tr>
+          <tr>
+            <td>常量</td>
+            <td>全大写，单词间用_拼接</td>
+            <td>NAME_LIKE_THIS</td>
+          </tr>
+          <tr>
+            <td>文件名</td>
+            <td>全小写，单词间可用_拼接</td>
+            <td>filename_like_this</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <h3 id="sub_title_10">命名使用有意义的英语单词或单词缩写（建议）</h3>
+    </li>
+    <li>
+      <h3 id="sub_title_11">全局变量一律使用g_开头</h3>
+    </li>
+    <li>
+      <h3 id="sub_title_12">常量必须用define表示，命名全部使用大写字母，单词之间以’_’连接</h3>
+    </li>
+    <li>
+      <h3 id="sub_title_13">预定义变量一律使用短格式</h3>
 
-<blockquote>
-<p>即：$_POST、$_GET $_SERVER、$GLOBALS、$_COOKIE、$_SESSION $FILES等，不再使用 $_HTTP+POST+VARS、s$_HTTP_GET_VARS</p>
-</blockquote>
-</li>
-<li>
-<h3 id="sub_title_14">类的私有成员需加前缀"_"</h3>
+      <blockquote>
+        <p>
+          即：$_POST、$_GET $_SERVER、$GLOBALS、$_COOKIE、$_SESSION $FILES等，不再使用 $_HTTP+POST+VARS、s$_HTTP_GET_VARS
+        </p>
+      </blockquote>
+    </li>
+    <li>
+      <h3 id="sub_title_14">类的私有成员需加前缀"_"</h3>
 
-<p>例如</p>
+      <p>例如</p>
 
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Usr</span> <span class="p">{</span>
+      <div class="highlight">
+        <pre><span class="k">class</span> <span class="nc">Usr</span> <span class="p">{</span>
     <span class="c1">//获取用户类型</span>
     <span class="k">private</span> <span class="k">function</span> <span class="nf">_getUsrType</span><span class="p">()</span> <span class="p">{</span>
         <span class="nx">your</span> <span class="nx">code</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_15">用正确的反义词组命名具有互斥意义的变量或相反动作的函数等。</h3>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_15">用正确的反义词组命名具有互斥意义的变量或相反动作的函数等。</h3>
 
-<blockquote>
-<p>说明：下面是一些在软件中常用的反义词组。</p>
+      <blockquote>
+        <p>说明：下面是一些在软件中常用的反义词组。</p>
 
-<table>
-<thead><tr>
-<th>column1</th>
-<th>column2</th>
-<th>column3</th>
-<th>column4</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>add/remove；</td>
-<td>begin/end；</td>
-<td>create/destroy；</td>
-<td>insert/delete；</td>
-</tr>
-<tr>
-<td>first/last；</td>
-<td>get/set；</td>
-<td>increment/decrement；</td>
-<td>put/get；</td>
-</tr>
-<tr>
-<td>add/delete；</td>
-<td>lock/unlock；</td>
-<td>open/close；</td>
-<td>min/max；</td>
-</tr>
-<tr>
-<td>old/new；</td>
-<td>start/stop；</td>
-<td>next/previous；</td>
-<td>source/target；</td>
-</tr>
-<tr>
-<td>show/hide；</td>
-<td>send/receive；</td>
-<td>source/destination；</td>
-<td>cut/paste；</td>
-</tr>
-<tr>
-<td>up/down</td>
-<td>read/write</td>
-<td>enable/disable</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>另外对数据库的增删改查建议统一使用下面的单词：insert\del\update\get</p>
-</blockquote>
-</li>
-</ul><h3>注释篇</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>column1</th>
+              <th>column2</th>
+              <th>column3</th>
+              <th>column4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>add/remove；</td>
+              <td>begin/end；</td>
+              <td>create/destroy；</td>
+              <td>insert/delete；</td>
+            </tr>
+            <tr>
+              <td>first/last；</td>
+              <td>get/set；</td>
+              <td>increment/decrement；</td>
+              <td>put/get；</td>
+            </tr>
+            <tr>
+              <td>add/delete；</td>
+              <td>lock/unlock；</td>
+              <td>open/close；</td>
+              <td>min/max；</td>
+            </tr>
+            <tr>
+              <td>old/new；</td>
+              <td>start/stop；</td>
+              <td>next/previous；</td>
+              <td>source/target；</td>
+            </tr>
+            <tr>
+              <td>show/hide；</td>
+              <td>send/receive；</td>
+              <td>source/destination；</td>
+              <td>cut/paste；</td>
+            </tr>
+            <tr>
+              <td>up/down</td>
+              <td>read/write</td>
+              <td>enable/disable</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>另外对数据库的增删改查建议统一使用下面的单词：insert\del\update\get</p>
+      </blockquote>
+    </li>
+  </ul>
+  <h3>注释篇</h3>
 
-<ul>
-<li><h3 id="sub_title_16">代码注释行数不得少于代码量的30%(建议)</h3></li>
-<li>
-<h3 id="sub_title_17">所有的文件，类，方法和属性都应该以 <a href="http://manual.phpdoc.org/HTMLframesConverter/default/">PHPDoc</a> 风格来进行注释。</h3>
+  <ul>
+    <li>
+      <h3 id="sub_title_16">代码注释行数不得少于代码量的30%(建议)</h3>
+    </li>
+    <li>
+      <h3 id="sub_title_17">
+        所有的文件，类，方法和属性都应该以
+        <a href="http://manual.phpdoc.org/HTMLframesConverter/default/">PHPDoc</a>
+        风格来进行注释。
+      </h3>
 
-<p><strong>函数和方法至少必须保证 <a href="https://github.com/desc" class="user-mention">@desc</a>、<a href="https://github.com/param" class="user-mention">@param</a>、<a href="https://github.com/return" class="user-mention">@return</a> 的注释。</strong><br><br>
-变量的类型包含：string/int/bool/float/object/mixed/array/resource/void</p>
+      <p> <strong>函数和方法至少必须保证
+          <a href="https://github.com/desc" class="user-mention">@desc</a>
+          、
+          <a href="https://github.com/param" class="user-mention">@param</a>
+          、
+          <a href="https://github.com/return" class="user-mention">@return</a>
+          的注释。</strong> 
+        <br>
+        <br>
+        变量的类型包含：string/int/bool/float/object/mixed/array/resource/void
+      </p>
 
-<p>例 - 文件注释：</p>
+      <p>例 - 文件注释：</p>
 
-<div class="highlight"><pre><span class="s2">"A simple class describing employees"</span> <span class="err">说明文件的主要作用</span>
+      <div class="highlight">
+        <pre><span class="s2">"A simple class describing employees"</span> <span class="err">说明文件的主要作用</span>
 <span class="s2">"@author George Schlossnagle"</span> <span class="err">说明作者信息</span>
 <span class="sd">/**</span>
-<span class="sd"> * A simple class describing employees</span>
-<span class="sd"> * @author George Schlossnagle</span>
+<span class="sd">* A simple class describing employees</span>
+<span class="sd">* @author George Schlossnagle</span>
 <span class="sd">**/</span>
-</pre></div>
+</pre>
+      </div>
 
-<p>例 - 类注释</p>
+      <p>例 - 类注释</p>
 
-<div class="highlight"><pre><span class="s2">"An example of documenting a class"</span> <span class="err">说明类的主要工作</span>
+      <div class="highlight">
+        <pre><span class="s2">"An example of documenting a class"</span> <span class="err">说明类的主要工作</span>
 <span class="s2">"@author George Schlossnagle"</span> <span class="err">说明作者信息</span>
 <span class="sd">/**</span>
-<span class="sd"> * An example of documenting a class </span>
-<span class="sd"> * @author Author Name</span>
-<span class="sd"> */</span>
+<span class="sd">* An example of documenting a class </span>
+<span class="sd">* @author Author Name</span>
+<span class="sd">*/</span>
  <span class="k">class</span> <span class="nc">SuperClass</span> <span class="p">{</span>
-</pre></div>
+</pre>
+      </div>
 
-<p>例 – 函数或方法注释</p>
+      <p>例 – 函数或方法注释</p>
 
-<div class="highlight"><pre><span class="s2">"The class constructor"</span> <span class="err">说明函数或方法的作用</span>
+      <div class="highlight">
+        <pre><span class="s2">"The class constructor"</span> <span class="err">说明函数或方法的作用</span>
 <span class="s2">"@access"</span> <span class="err">说明访问权限</span>
 <span class="s2">"@param"</span>  <span class="err">说明参数类型，参数如果是数组，必须详细说明每个</span><span class="nx">KEY</span><span class="err">的含义</span>
 <span class="s2">"@return"</span> <span class="err">说明返回值</span>
@@ -337,252 +424,333 @@
 <span class="k">function</span> <span class="nf">monthlySalary</span><span class="p">(</span><span class="nv">$salary</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nv">$salary</span><span class="o">/</span><span class="mi">12</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</pre>
+      </div>
 
-<p>例 – 类变量注释：<a href="https://github.com/var" class="user-mention">@var</a> datatype description</p>
+      <p>
+        例 – 类变量注释：
+        <a href="https://github.com/var" class="user-mention">@var</a>
+        datatype description
+      </p>
 
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">ClassName</span><span class="p">{</span>
+      <div class="highlight">
+        <pre><span class="k">class</span> <span class="nc">ClassName</span><span class="p">{</span>
     <span class="sd">/**</span>
-<span class="sd">    * @var string example of variable</span>
-<span class="sd">    */</span>
+<span class="sd">* @var string example of variable</span>
+<span class="sd">*/</span>
     <span class="k">public</span> <span class="nv">$var</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_18">Debug要加注释(建议)</h3>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_18">Debug要加注释(建议)</h3>
 
-<blockquote>
-<p>程序开发中难免留下一些临时代码和调试代码，此类代码必须添加注释，以免日后遗忘。所有临时性、调试性、试验性的代码，必须添加统一的注释标记“//debug”并后跟完整的注释信息，这样可以方便在程序发布和最终调试前批量检查程序中是否还存在有疑问的代码。</p>
-</blockquote>
+      <blockquote>
+        <p>
+          程序开发中难免留下一些临时代码和调试代码，此类代码必须添加注释，以免日后遗忘。所有临时性、调试性、试验性的代码，必须添加统一的注释标记“//debug”并后跟完整的注释信息，这样可以方便在程序发布和最终调试前批量检查程序中是否还存在有疑问的代码。
+        </p>
+      </blockquote>
 
-<p>例如：</p>
+      <p>例如：</p>
 
-<div class="highlight"><pre><span class="nv">$num</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+      <div class="highlight">
+        <pre><span class="nv">$num</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nv">$flag</span> <span class="o">=</span> <span class="k">TRUE</span><span class="p">;</span> <span class="c1">//debug 这里不能确定是否需要对$flag进行赋值</span>
 <span class="k">if</span><span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$flag</span><span class="p">))</span> <span class="p">{</span>
   <span class="c1">//Statements</span>
 <span class="p">}</span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_19">修改别人的代码需加注释(建议)</h3>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_19">修改别人的代码需加注释(建议)</h3>
 
-<blockquote>
-<p>需签名，说明业务</p>
-</blockquote>
-</li>
-</ul><h2>编码风格篇</h2>
+      <blockquote>
+        <p>需签名，说明业务</p>
+      </blockquote>
+    </li>
+  </ul>
+  <h2>编码风格篇</h2>
 
-<ul>
-<li>
-<h3 id="sub_title_0">一直使用单引号除非需要解析变量，如果需要解析变量请使用大括号</h3>
+  <ul>
+    <li>
+      <h3 id="sub_title_0">一直使用单引号除非需要解析变量，如果需要解析变量请使用大括号</h3>
 
-<p>不正确的:</p>
+      <p>不正确的:</p>
 
-<div class="highlight"><pre><span class="s2">"My String"</span>       <span class="c1">// 没有解析变量，不需要使用双引号</span>
+      <div class="highlight">
+        <pre><span class="s2">"My String"</span>       <span class="c1">// 没有解析变量，不需要使用双引号</span>
 <span class="s2">"My string </span><span class="si">$foo</span><span class="s2">"</span>  <span class="c1">// 解析变量需要使用大括号'{}'</span>
 <span class="s1">'SELECT foo FROM bar WHERE baz = \'bag\''</span> <span class="c1">// 需要转义单引号''时这样写比较难看，可以使用双引号</span>
-</pre></div>
+</pre>
+      </div>
 
-<p>正确的:</p>
+      <p>正确的:</p>
 
-<div class="highlight"><pre><span class="s1">'My String'</span>
+      <div class="highlight">
+        <pre><span class="s1">'My String'</span>
 <span class="s2">"My string </span><span class="si">{</span><span class="nv">$foo</span><span class="si">}</span><span class="s2">"</span>
 <span class="s2">"SELECT foo FROM bar WHERE baz = 'bag'"</span>
-</pre></div>
-</li>
-<li><h3 id="sub_title_1">每行代码长度不超过80个字符</h3></li>
-<li><h3 id="sub_title_2">每个Function尽量做一件事、尽量短,控制在一屏以内</h3></li>
-<li><h3 id="sub_title_3">每个文件一个类</h3></li>
-<li>
-<h3 id="sub_title_4">If/while等结构体，即使只有一行，也必须加上左右花括号，并且写成多行</h3>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_1">每行代码长度不超过80个字符</h3>
+    </li>
+    <li>
+      <h3 id="sub_title_2">每个Function尽量做一件事、尽量短,控制在一屏以内</h3>
+    </li>
+    <li>
+      <h3 id="sub_title_3">每个文件一个类</h3>
+    </li>
+    <li>
+      <h3 id="sub_title_4">If/while等结构体，即使只有一行，也必须加上左右花括号，并且写成多行</h3>
 
-<p>不当的：</p>
+      <p>不当的：</p>
 
-<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="k">do</span> <span class="nx">sth</span><span class="p">;</span>
-</pre></div>
+      <div class="highlight">
+        <pre><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="k">do</span> <span class="nx">sth</span><span class="p">;</span>
+</pre>
+      </div>
 
-<p>恰当的：</p>
+      <p>恰当的：</p>
 
-<div class="highlight"><pre><span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+      <div class="highlight">
+        <pre><span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">your</span> <span class="nx">code</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</li>
-<li><h3 id="sub_title_5">使用elseif，不使用else if</h3></li>
-<li><h3 id="sub_title_6">函数参数控制在4个以内，参数过多时可以用数组，对象传递（建议）</h3></li>
-<li>
-<h3 id="sub_title_7">减少if/else嵌套</h3>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_5">使用elseif，不使用else if</h3>
+    </li>
+    <li>
+      <h3 id="sub_title_6">函数参数控制在4个以内，参数过多时可以用数组，对象传递（建议）</h3>
+    </li>
+    <li>
+      <h3 id="sub_title_7">减少if/else嵌套</h3>
 
-<blockquote>
-<p>三层以上需用switch</p>
-</blockquote>
-</li>
-<li>
-<h3 id="sub_title_8">if语句的条件若较多，应折行，新行以逻辑运算符开始</h3>
+      <blockquote>
+        <p>三层以上需用switch</p>
+      </blockquote>
+    </li>
+    <li>
+      <h3 id="sub_title_8">if语句的条件若较多，应折行，新行以逻辑运算符开始</h3>
 
-<blockquote>
-<p>新行与第一行if左括号后的第一个字符对齐，折行后每行条件具有独立而明确的语义</p>
-</blockquote>
+      <blockquote>
+        <p>新行与第一行if左括号后的第一个字符对齐，折行后每行条件具有独立而明确的语义</p>
+      </blockquote>
 
-<p>例如：</p>
+      <p>例如：</p>
 
-<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span> <span class="o">&amp;&amp;</span> <span class="nx">c</span> <span class="o">&gt;</span> <span class="nx">d</span>
+      <div class="highlight">
+        <pre><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span> <span class="o">&amp;&amp;</span> <span class="nx">c</span> <span class="o">&gt;</span> <span class="nx">d</span>
     <span class="o">&amp;&amp;</span> <span class="nx">e</span> <span class="o">&gt;</span> <span class="nx">f</span>
     <span class="o">||</span> <span class="nx">z</span> <span class="o">&gt;</span> <span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">your</span> <span class="nx">code</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</li>
-<li><h3 id="sub_title_9">关键字TRUE,FALSE,NULL必须大写(建议)</h3></li>
-<li>
-<h3 id="sub_title_10">使用foreach遍历数组</h3>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_9">关键字TRUE,FALSE,NULL必须大写(建议)</h3>
+    </li>
+    <li>
+      <h3 id="sub_title_10">使用foreach遍历数组</h3>
 
-<blockquote>
-<p>foreach比for、while好理解,而且更快。</p>
-</blockquote>
-</li>
-<li>
-<h3 id="sub_title_11">避免修改for循环内的条件值</h3>
+      <blockquote>
+        <p>foreach比for、while好理解,而且更快。</p>
+      </blockquote>
+    </li>
+    <li>
+      <h3 id="sub_title_11">避免修改for循环内的条件值</h3>
 
-<blockquote>
-<p>避免重新计算for循环内的条件值（比如count()/strlen()/sizeof()等），因为PHP的解析器不能够删除循环不变量。请在循环前就设定循环的条件值，而不是在循环内。</p>
-</blockquote>
+      <blockquote>
+        <p>
+          避免重新计算for循环内的条件值（比如count()/strlen()/sizeof()等），因为PHP的解析器不能够删除循环不变量。请在循环前就设定循环的条件值，而不是在循环内。
+        </p>
+      </blockquote>
 
-<p>不当的：</p>
+      <p>不当的：</p>
 
-<div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$array</span><span class="p">);</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <div class="highlight">
+        <pre><span class="k">for</span> <span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$array</span><span class="p">);</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">your</span> <span class="nx">code</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</pre>
+      </div>
 
-<p>恰当的：</p>
+      <p>恰当的：</p>
 
-<div class="highlight"><pre><span class="nv">$total</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$array</span><span class="p">);</span>
+      <div class="highlight">
+        <pre><span class="nv">$total</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$array</span><span class="p">);</span>
 <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$total</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">your</span> <span class="nx">code</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</li>
-<li><h3 id="sub_title_12">逻辑运算符使用 || 和 &amp;&amp;</h3></li>
-<li>
-<h3 id="sub_title_13">对于函数返回值的判断使用===/!==</h3>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_12">逻辑运算符使用 || 和 &amp;&amp;</h3>
+    </li>
+    <li>
+      <h3 id="sub_title_13">对于函数返回值的判断使用===/!==</h3>
 
-<blockquote>
-<p>特别是TRUE/FLASE，部分PHP函数执行失败时返回 FALSE, 但也可能有一个有效的返回值 "" 或 0, 它在松散比较中会被计算为FALSE. 在条件语句中使用这些返回值的时候，为了确保返回值是你所预期的类型而不是一个有着松散类型的值，请进行显式的比较。<br>
-在返回和检查你自己的变量时也要遵循这种严格的方法，必要时使用=== 和 !==。</p>
-</blockquote>
+      <blockquote>
+        <p>
+          特别是TRUE/FLASE，部分PHP函数执行失败时返回 FALSE, 但也可能有一个有效的返回值 "" 或 0, 它在松散比较中会被计算为FALSE. 在条件语句中使用这些返回值的时候，为了确保返回值是你所预期的类型而不是一个有着松散类型的值，请进行显式的比较。
+          <br>在返回和检查你自己的变量时也要遵循这种严格的方法，必要时使用=== 和 !==。</p>
+      </blockquote>
 
-<p>不当的:</p>
+      <p>不当的:</p>
 
-<div class="highlight"><pre><span class="c1">// 如果 'foo' 位于此字符串的起始处，strpos将返回 0,</span>
+      <div class="highlight">
+        <pre><span class="c1">// 如果 'foo' 位于此字符串的起始处，strpos将返回 0,</span>
 <span class="c1">// 此处条件判断的结果为TRUE</span>
 <span class="k">if</span> <span class="p">(</span><span class="nb">strpos</span><span class="p">(</span><span class="nv">$str</span><span class="p">,</span> <span class="s1">'foo'</span><span class="p">)</span> <span class="o">==</span> <span class="k">FALSE</span><span class="p">)</span>
-</pre></div>
+</pre>
+      </div>
 
-<p>恰当的:</p>
+      <p>恰当的:</p>
 
-<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nb">strpos</span><span class="p">(</span><span class="nv">$str</span><span class="p">,</span> <span class="s1">'foo'</span><span class="p">)</span> <span class="o">===</span> <span class="k">FALSE</span><span class="p">)</span>
-</pre></div>
+      <div class="highlight">
+        <pre><span class="k">if</span> <span class="p">(</span><span class="nb">strpos</span><span class="p">(</span><span class="nv">$str</span><span class="p">,</span> <span class="s1">'foo'</span><span class="p">)</span> <span class="o">===</span> <span class="k">FALSE</span><span class="p">)</span>
+</pre>
+      </div>
 
-<p>不当的:</p>
+      <p>不当的:</p>
 
-<div class="highlight"><pre><span class="k">function</span> <span class="nf">build_string</span><span class="p">(</span><span class="nv">$str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span>
+      <div class="highlight">
+        <pre><span class="k">function</span> <span class="nf">build_string</span><span class="p">(</span><span class="nv">$str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nv">$str</span> <span class="o">==</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span><span class="c1">// uh-oh!  如果传递的参数是FALSE或者整数0那会怎么样?</span>
         <span class="nx">your</span> <span class="nx">code</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
+</pre>
+      </div>
 
-<p>恰当的:</p>
+      <p>恰当的:</p>
 
-<div class="highlight"><pre><span class="k">function</span> <span class="nf">build_string</span><span class="p">(</span><span class="nv">$str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span>
+      <div class="highlight">
+        <pre><span class="k">function</span> <span class="nf">build_string</span><span class="p">(</span><span class="nv">$str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nv">$str</span> <span class="o">===</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">your</span> <span class="nx">code</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_14">不允许在表达式中使用递增/递减运算符</h3>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_14">不允许在表达式中使用递增/递减运算符</h3>
 
-<blockquote>
-<p>这些运算符只能独自一行使用。递增／递减运算符不影响布尔值。递减 NULL 值也没有效果，但是递增 NULL 的结果是 1 。字符串变量只能递增（使用PERL的方式而非C的方式），不能递减。</p>
+      <blockquote>
+        <p>
+          这些运算符只能独自一行使用。递增／递减运算符不影响布尔值。递减 NULL 值也没有效果，但是递增 NULL 的结果是 1 。字符串变量只能递增（使用PERL的方式而非C的方式），不能递减。
+        </p>
 
-<p>ps: <br>
-递增使用前加++$i比后加$i++快，递减使用前减--$i比后减$i--快；<br>
-在方法里递增、递减局部变量是最快的，在函数里调用局部变量也是； <br>
-递增、递减一个全局变量比局部变量要慢两倍； <br>
-递增、递减一个对象的属性 (例如 $this-&gt;prop++) 比局部变量慢3倍； <br>
-递增、递减一个未定义的局部变量比一个预定义过的慢9-10倍； </p>
-</blockquote>
+        <p>
+          ps:
+          <br>
+          递增使用前加++$i比后加$i++快，递减使用前减--$i比后减$i--快；
+          <br>
+          在方法里递增、递减局部变量是最快的，在函数里调用局部变量也是；
+          <br>
+          递增、递减一个全局变量比局部变量要慢两倍；
+          <br>
+          递增、递减一个对象的属性 (例如 $this-&gt;prop++) 比局部变量慢3倍；
+          <br>递增、递减一个未定义的局部变量比一个预定义过的慢9-10倍；</p>
+      </blockquote>
 
-<p>不当的:</p>
+      <p>不当的:</p>
 
-<div class="highlight"><pre><span class="nv">$array</span><span class="p">[</span><span class="o">++</span><span class="nv">$i</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$j</span><span class="p">;</span>
+      <div class="highlight">
+        <pre><span class="nv">$array</span><span class="p">[</span><span class="o">++</span><span class="nv">$i</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$j</span><span class="p">;</span>
 <span class="nv">$array</span><span class="p">[</span><span class="nv">$i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$k</span><span class="p">;</span>
-</pre></div>
+</pre>
+      </div>
 
-<p>恰当的:</p>
+      <p>恰当的:</p>
 
-<div class="highlight"><pre><span class="nv">$i</span><span class="o">++</span><span class="p">;</span>
+      <div class="highlight">
+        <pre><span class="nv">$i</span><span class="o">++</span><span class="p">;</span>
 <span class="nv">$array</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$j</span><span class="p">;</span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_15">使用iseet()来检测变量初始化</h3>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_15">使用iseet()来检测变量初始化</h3>
 
-<blockquote>
-<p>请不要使用未初始化的变量！对于用户在HTML中提交的输入值，需要使用isset()来检测是否已被初始化。</p>
-</blockquote>
+      <blockquote>
+        <p>请不要使用未初始化的变量！对于用户在HTML中提交的输入值，需要使用isset()来检测是否已被初始化。</p>
+      </blockquote>
 
-<p>不当的：</p>
+      <p>不当的：</p>
 
-<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'forum'</span><span class="p">])</span> <span class="p">{</span>
+      <div class="highlight">
+        <pre><span class="k">if</span> <span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'forum'</span><span class="p">])</span> <span class="p">{</span>
     <span class="nx">your</span> <span class="nx">code</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</pre>
+      </div>
 
-<p>恰当的：</p>
+      <p>恰当的：</p>
 
-<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'forum'</span><span class="p">]))</span> <span class="p">{</span>
+      <div class="highlight">
+        <pre><span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'forum'</span><span class="p">]))</span> <span class="p">{</span>
     <span class="nx">your</span> <span class="nx">code</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_16">三元条件运算符更适用于赋值</h3>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_16">三元条件运算符更适用于赋值</h3>
 
-<blockquote>
-<p>三元条件运算符更适用于赋值，使得程序更为简洁。三元条件运算符不适合用作函数调用或者其它任何复杂的代码，这将会让代码变得晦涩难懂。</p>
-</blockquote>
+      <blockquote>
+        <p>
+          三元条件运算符更适用于赋值，使得程序更为简洁。三元条件运算符不适合用作函数调用或者其它任何复杂的代码，这将会让代码变得晦涩难懂。
+        </p>
+      </blockquote>
 
-<p>不当的：</p>
+      <p>不当的：</p>
 
-<div class="highlight"><pre><span class="p">((</span><span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$size</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nv">$j</span> <span class="o">&gt;</span> <span class="nv">$size</span><span class="p">))</span> <span class="o">?</span> <span class="k">do</span><span class="nx">\_stuff</span><span class="p">(</span><span class="nv">$foo</span><span class="p">)</span> <span class="o">:</span> <span class="k">do</span><span class="nx">\_stuff</span><span class="p">(</span><span class="nv">$bar</span><span class="p">);</span>
-</pre></div>
+      <div class="highlight">
+        <pre><span class="p">((</span><span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$size</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nv">$j</span> <span class="o">&gt;</span> <span class="nv">$size</span><span class="p">))</span> <span class="o">?</span> <span class="k">do</span><span class="nx">\_stuff</span><span class="p">(</span><span class="nv">$foo</span><span class="p">)</span> <span class="o">:</span> <span class="k">do</span><span class="nx">\_stuff</span><span class="p">(</span><span class="nv">$bar</span><span class="p">);</span>
+</pre>
+      </div>
 
-<p>恰当的：</p>
+      <p>恰当的：</p>
 
-<div class="highlight"><pre><span class="nv">$min</span> <span class="o">=</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$j</span><span class="p">)</span> <span class="o">?</span> <span class="nv">$i</span> <span class="o">:</span> <span class="nv">$j</span><span class="p">;</span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_17">echo、return等语法结果不要使用()</h3>
+      <div class="highlight">
+        <pre><span class="nv">$min</span> <span class="o">=</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$j</span><span class="p">)</span> <span class="o">?</span> <span class="nv">$i</span> <span class="o">:</span> <span class="nv">$j</span><span class="p">;</span>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_17">echo、return等语法结果不要使用()</h3>
 
-<blockquote>
-<p>在PHP中echo、exit(die)、return、continue、break、include、include_once、require、require_once等都属于语法结构，大部分语法结构都有两种形式：</p>
+      <blockquote>
+        <p>
+          在PHP中echo、exit(die)、return、continue、break、include、include_once、require、require_once等都属于语法结构，大部分语法结构都有两种形式：
+        </p>
 
-<div class="highlight"><pre><span class="k">echo</span> <span class="s1">'This is a string'</span><span class="p">;</span>
+        <div class="highlight">
+          <pre><span class="k">echo</span> <span class="s1">'This is a string'</span><span class="p">;</span>
 <span class="k">echo</span><span class="p">(</span><span class="s1">'This is a string'</span><span class="p">);</span>
-</pre></div>
+</pre>
+        </div>
 
-<p>在PHP规定的允许使用的格式下，尽可能使用前一种语法结构的格式，而不要使用函数参数/表达式的形式，仅在参数包含表达式时才需要用括号将其括起来。当返回一个变量时通常不用括号，也建议不要用，这样既可以降低 PHP 的负担，又可以避免一些错误（见下）。</p>
+        <p>
+          在PHP规定的允许使用的格式下，尽可能使用前一种语法结构的格式，而不要使用函数参数/表达式的形式，仅在参数包含表达式时才需要用括号将其括起来。当返回一个变量时通常不用括号，也建议不要用，这样既可以降低 PHP 的负担，又可以避免一些错误（见下）。
+        </p>
 
-<p>对于return(),当用引用返回值时永远不要使用括号，只能通过引用返回变量，而不是语句的结果。如果使用 return ($a); 时其实不是返回一个变量，而是表达式 ($a) 的值（当然，此时该值也正是 $a 的值）。</p>
+        <p>
+          对于return(),当用引用返回值时永远不要使用括号，只能通过引用返回变量，而不是语句的结果。如果使用 return ($a); 时其实不是返回一个变量，而是表达式 ($a) 的值（当然，此时该值也正是 $a 的值）。
+        </p>
 
-<div class="highlight"><pre><span class="c1">// won't work, evaluated as include(('vars.php') == 'OK'), i.e. include('')</span>
+        <div class="highlight">
+          <pre><span class="c1">// won't work, evaluated as include(('vars.php') == 'OK'), i.e. include('')</span>
 <span class="k">if</span> <span class="p">(</span><span class="k">include</span><span class="p">(</span><span class="s1">'vars.php'</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'OK'</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">echo</span> <span class="s1">'OK'</span><span class="p">;</span>
 <span class="p">}</span>
@@ -590,158 +758,212 @@
 <span class="k">if</span> <span class="p">((</span><span class="k">include</span> <span class="s1">'vars.php'</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'OK'</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">echo</span> <span class="s1">'OK'</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</blockquote>
-</li>
-<li>
-<h3 id="sub_title_18">声明对象new之后需要加括号，即使没有参数</h3>
+</pre>
+        </div>
+      </blockquote>
+    </li>
+    <li>
+      <h3 id="sub_title_18">声明对象new之后需要加括号，即使没有参数</h3>
 
-<p>例如</p>
+      <p>例如</p>
 
-<div class="highlight"><pre><span class="nv">$db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Db</span><span class="p">();</span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_19">使用require_once、inclued_once代替require、include</h3>
+      <div class="highlight">
+        <pre><span class="nv">$db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Db</span><span class="p">();</span>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_19">使用require_once、inclued_once代替require、include</h3>
 
-<blockquote>
-<p>尽量不要在函数中使用require_once、inclued_once，原因参考 <a href="http://web.open.xunlei.com/wiki/index.php?doc-view-4">函数中使用require_once常碰到的问题</a></p>
-</blockquote>
-</li>
-</ul><h2>数据库篇</h2>
+      <blockquote>
+        <p>
+          尽量不要在函数中使用require_once、inclued_once，原因参考
+          <a href="http://web.open.xunlei.com/wiki/index.php?doc-view-4">函数中使用require_once常碰到的问题</a>
+        </p>
+      </blockquote>
+    </li>
+  </ul>
+  <h2>数据库篇</h2>
 
-<ul>
-<li>
-<h3 id="sub_title_0">数据表、字段的名称所有字母都要小写，以下划线’_’作为单词分隔符</h3>
+  <ul>
+    <li>
+      <h3 id="sub_title_0">数据表、字段的名称所有字母都要小写，以下划线’_’作为单词分隔符</h3>
 
-<p>例如：</p>
+      <p>例如：</p>
 
-<div class="highlight"><pre><span class="n">t_movie_info</span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_1">数据库字段类型尽量小</h3>
+      <div class="highlight">
+        <pre><span class="n">t_movie_info</span>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_1">数据库字段类型尽量小</h3>
 
-<blockquote>
-<p>int能满足，就不用char、varcahr<br><br>
-tinyint能满足，就不用int.</p>
-</blockquote>
-</li>
-<li>
-<h3 id="sub_title_2">SQL语句关键词大写，并按照逻辑分行</h3>
+      <blockquote>
+        <p>
+          int能满足，就不用char、varcahr
+          <br>
+          <br>tinyint能满足，就不用int.</p>
+      </blockquote>
+    </li>
+    <li>
+      <h3 id="sub_title_2">SQL语句关键词大写，并按照逻辑分行</h3>
 
-<blockquote>
-<p>比如SELECT/INSERT/UPDATE/DELETE在一行，FROM在一行，LEFT JOIN …ON/RIGHT JOIN…ON在一行，WHERE在一行，ORDER BY在一行，GROUP BY在一行，LIMIT在一行。WHERE条件里面多个条件请使用括号来区分优先级。</p>
-</blockquote>
+      <blockquote>
+        <p>
+          比如SELECT/INSERT/UPDATE/DELETE在一行，FROM在一行，LEFT JOIN …ON/RIGHT JOIN…ON在一行，WHERE在一行，ORDER BY在一行，GROUP BY在一行，LIMIT在一行。WHERE条件里面多个条件请使用括号来区分优先级。
+        </p>
+      </blockquote>
 
-<p>例如: </p>
+      <p>例如:</p>
 
-<div class="highlight"><pre><span class="k">SELECT</span> <span class="n">field1</span> <span class="k">AS</span> <span class="n">something</span><span class="p">,</span> <span class="n">field2</span><span class="p">,</span> <span class="n">field3</span>
+      <div class="highlight">
+        <pre><span class="k">SELECT</span> <span class="n">field1</span> <span class="k">AS</span> <span class="n">something</span><span class="p">,</span> <span class="n">field2</span><span class="p">,</span> <span class="n">field3</span>
 <span class="k">FROM</span> <span class="k">table</span> <span class="n">a</span><span class="p">,</span> <span class="k">table</span> <span class="n">b</span>
 <span class="k">WHERE</span> <span class="p">(</span><span class="n">this</span><span class="o">=</span><span class="n">that</span><span class="p">)</span> <span class="k">AND</span> <span class="p">(</span><span class="n">this2</span><span class="o">=</span><span class="n">that2</span><span class="p">)</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">id</span>
 <span class="k">LIMIT</span> <span class="mi">5</span><span class="p">,</span><span class="mi">100</span>
-</pre></div>
-</li>
-<li>
-<h3 id="sub_title_3">UPDATE/DELETE后必须跟WHERE子句</h3>
+</pre>
+      </div>
+    </li>
+    <li>
+      <h3 id="sub_title_3">UPDATE/DELETE后必须跟WHERE子句</h3>
 
-<blockquote>
-<p>曾经因此造成非常严重的事故</p>
-</blockquote>
-</li>
-<li>
-<h3 id="sub_title_4">使用EXPLAIN检测SQL语句</h3>
+      <blockquote>
+        <p>曾经因此造成非常严重的事故</p>
+      </blockquote>
+    </li>
+    <li>
+      <h3 id="sub_title_4">使用EXPLAIN检测SQL语句</h3>
 
-<blockquote>
-<p>EXPLAIN语句是检测索引和查询能否良好匹配的简便方法，在mysql客户端中运行EXPLAIN+查询语句，例如 EXPLAIN SELECT * FROM table WHERE a &gt; 0，这种形式，既使得开发者可以验证索引是否合理，相关细节请参考mysql说明。</p>
-</blockquote>
-</li>
-<li><h5>数据库操作要有日志记录，记录条数与对应操作一一对应</h5></li>
-</ul><h2>安全篇</h2>
+      <blockquote>
+        <p>
+          EXPLAIN语句是检测索引和查询能否良好匹配的简便方法，在mysql客户端中运行EXPLAIN+查询语句，例如 EXPLAIN SELECT * FROM table WHERE a &gt; 0，这种形式，既使得开发者可以验证索引是否合理，相关细节请参考mysql说明。
+        </p>
+      </blockquote>
+    </li>
+    <li>
+      <h5>数据库操作要有日志记录，记录条数与对应操作一一对应</h5>
+    </li>
+  </ul>
+  <h2>安全篇</h2>
 
-<ul>
-<li>
-<h3 id="sub_title_0">所有的用户输入都是有害的,对所有从客户端传入的数据都不信任, 需要做判断和过滤,否则可能会受到SQL Injection、XSS等攻击</h3>
+  <ul>
+    <li>
+      <h3 id="sub_title_0">
+        所有的用户输入都是有害的,对所有从客户端传入的数据都不信任, 需要做判断和过滤,否则可能会受到SQL Injection、XSS等攻击
+      </h3>
 
-<blockquote>
-<p>例如: <code>$_GET, $_POST, $_COOKIE, $_FILES, $REQUEST</code>等，直接使用将可能存在被注入的危险。</p>
-</blockquote>
-</li>
-<li>
-<h3 id="sub_title_1">用户的相关输入涉及数据库操作、文件操作等敏感操作时需要对输入做专门的转换。</h3>
+      <blockquote>
+        <p>
+          例如:
+          <code>$_GET, $_POST, $_COOKIE, $_FILES, $REQUEST</code>
+          等，直接使用将可能存在被注入的危险。
+        </p>
+      </blockquote>
+    </li>
+    <li>
+      <h3 id="sub_title_1">用户的相关输入涉及数据库操作、文件操作等敏感操作时需要对输入做专门的转换。</h3>
 
-<blockquote>
-<p>例如: 数据库操作中数字型的需要做<code>intval</code>转换，字符串类型的需要通过<code>mysql_real_escape_string</code>过滤。<br>
-文件操作禁止类似 <code>include_once("$userInput")</code>的操作。</p>
-</blockquote>
-</li>
-<li>
-<h3 id="sub_title_2">用户上传的文件的文件名必须重新命名，并限制文件类型</h3>
+      <blockquote>
+        <p>
+          例如: 数据库操作中数字型的需要做
+          <code>intval</code>
+          转换，字符串类型的需要通过
+          <code>mysql_real_escape_string</code>
+          过滤。
+          <br>
+          文件操作禁止类似
+          <code>include_once("$userInput")</code>
+          的操作。
+        </p>
+      </blockquote>
+    </li>
+    <li>
+      <h3 id="sub_title_2">用户上传的文件的文件名必须重新命名，并限制文件类型</h3>
 
-<blockquote>
-<p>判断文件类型紧张根据后缀名进行判断，需根据头信息进行判断。 <br>
-如果是图片可以使用getimagesize获得文件类型</p>
-</blockquote>
-</li>
-</ul><h2>日志打印篇</h2>
+      <blockquote>
+        <p>
+          判断文件类型紧张根据后缀名进行判断，需根据头信息进行判断。
+          <br>如果是图片可以使用getimagesize获得文件类型</p>
+      </blockquote>
+    </li>
+  </ul>
+  <h2>日志打印篇</h2>
 
-<p><strong>日志反映是程序运行状态的重要信息记录。</strong></p>
+  <p>
+    <strong>日志反映是程序运行状态的重要信息记录。</strong>
+  </p>
 
-<ul>
-<li>
-<h3 id="sub_title_0">日志类型</h3>
+  <ul>
+    <li>
+      <h3 id="sub_title_0">日志类型</h3>
 
-<blockquote>
-<p>debug:调试日志。（线上一般会关闭）<br><br>
-notice:正常日志.(表示程序的运行状态信息)<br><br>
-waring:一般警告错误。<br><br>
-fatal：致命错误</p>
-</blockquote>
-</li>
-<li>
-<h3 id="sub_title_1">日志格式：</h3>
+      <blockquote>
+        <p>
+          debug:调试日志。（线上一般会关闭）
+          <br>
+          <br>
+          notice:正常日志.(表示程序的运行状态信息)
+          <br>
+          <br>
+          waring:一般警告错误。
+          <br>
+          <br>fatal：致命错误</p>
+      </blockquote>
+    </li>
+    <li>
+      <h3 id="sub_title_1">日志格式：</h3>
 
-<pre><code>NOTICE: 07-25 06:01:57: [test.php:6] errno[0] ip[127.0.0.1] logId[2046030680] uri[/test.php] key1[value1] key2[value2] 日志描述
+      <pre><code>NOTICE: 07-25 06:01:57: [test.php:6] errno[0] ip[127.0.0.1] logId[2046030680] uri[/test.php] key1[value1] key2[value2] 日志描述
 </code></pre>
 
-<blockquote>
-<p>日志级别: 日期: [文件:行号]: errno[错误码] ip[IP] uri[请求页面] key1[value1] 日志描述.</p>
-</blockquote>
-</li>
-<li>
-<h3 id="sub_title_2">日志打印位置：</h3>
+      <blockquote>
+        <p>
+          日志级别: 日期: [文件:行号]: errno[错误码] ip[IP] uri[请求页面] key1[value1] 日志描述.
+        </p>
+      </blockquote>
+    </li>
+    <li>
+      <h3 id="sub_title_2">日志打印位置：</h3>
 
-<ul>
-<li>访问日志： <code>/data/tmp/log/$model/$model.log</code><br>
-</li>
-<li>脚本日志： <code>/data/tmp/log/$model/$scriptName.log</code>
-</li>
-</ul>
-<blockquote>
-<p>脚本名称不要和模块名称重名了</p>
-</blockquote>
-</li>
-<li>
-<h3 id="sub_title_3">使用统一的日志打印类，如</h3>
+      <ul>
+        <li>
+          访问日志：
+          <code>/data/tmp/log/$model/$model.log</code>
+          <br></li>
+        <li>
+          脚本日志：
+          <code>/data/tmp/log/$model/$scriptName.log</code>
+        </li>
+      </ul>
+      <blockquote>
+        <p>脚本名称不要和模块名称重名了</p>
+      </blockquote>
+    </li>
+    <li>
+      <h3 id="sub_title_3">使用统一的日志打印类，如</h3>
 
-<p>方法：</p>
+      <p>方法：</p>
 
-<div class="highlight"><pre><span class="sd">/**</span>
-<span class="sd"> * 打印普通日志，该日志每个函数只能打印一条，表示请求成功</span>
-<span class="sd"> *</span>
-<span class="sd"> * @param string $str 需要打印的字符串</span>
-<span class="sd"> * @param int $errno 错误码</span>
-<span class="sd"> * @param array $arrArgs 参数数组</span>
-<span class="sd"> * @param int $depth 打印栈深度</span>
-<span class="sd"> * @return bool|int</span>
-<span class="sd"> */</span>
+      <div class="highlight">
+        <pre><span class="sd">/**</span>
+<span class="sd">* 打印普通日志，该日志每个函数只能打印一条，表示请求成功</span>
+<span class="sd">*</span>
+<span class="sd">* @param string $str 需要打印的字符串</span>
+<span class="sd">* @param int $errno 错误码</span>
+<span class="sd">* @param array $arrArgs 参数数组</span>
+<span class="sd">* @param int $depth 打印栈深度</span>
+<span class="sd">* @return bool|int</span>
+<span class="sd">*/</span>
 <span class="k">public</span> <span class="k">function</span> <span class="nf">notice</span><span class="p">(</span><span class="nv">$str</span><span class="p">,</span> <span class="nv">$errno</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">$arrArgs</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span> <span class="nv">$depth</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
+</pre>
+      </div>
 
-<p>用法：</p>
+      <p>用法：</p>
 
-<div class="highlight"><pre><span class="k">require_once</span><span class="p">(</span><span class="s1">'logger.php'</span><span class="p">);</span>
+      <div class="highlight">
+        <pre><span class="k">require_once</span><span class="p">(</span><span class="s1">'logger.php'</span><span class="p">);</span>
 <span class="nv">$arrLogConfig</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
                 <span class="s1">'intLevel'</span><span class="o">=&gt;</span><span class="mh">0xFF</span><span class="p">,</span>
                 <span class="s1">'strLogFile'</span><span class="o">=&gt;</span><span class="s1">'test.log'</span><span class="p">,</span>
@@ -750,15 +972,20 @@ fatal：致命错误</p>
 <span class="nv">$logger</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">logger</span><span class="p">(</span><span class="nv">$arrLogConfig</span><span class="p">);</span>
 <span class="c1">//函数调用深度0表示当前,1表示上一层调用</span>
 <span class="nv">$logger</span><span class="o">-&gt;</span><span class="na">notice</span><span class="p">(</span><span class="s1">'日志描述'</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="k">array</span><span class="p">(</span><span class="s1">'key1'</span><span class="o">=&gt;</span><span class="s1">'value1'</span><span class="p">,</span><span class="s1">'key2'</span><span class="o">=&gt;</span><span class="s1">'value2'</span><span class="p">),</span><span class="mi">0</span><span class="p">);</span>
-</pre></div>
-</li>
-</ul><h2>其他</h2>
+</pre>
+      </div>
+    </li>
+  </ul>
+  <h2>其他</h2>
 
-<ul>
-<li>如有 补充、修改 或其他建议，请联系： <a href="mailto:laiwenhui@xunlei.com">laiwenhui@xunlei.com</a> || <a href="mailto:lixiaowei@xunlei.com">lixiaowei@xunlei.com</a>
-</li>
-</ul>
+  <ul>
+    <li>
+      如有 补充、修改 或其他建议，请联系：
+      <a href="mailto:laiwenhui@xunlei.com">laiwenhui@xunlei.com</a>
+      ||
+      <a href="mailto:lixiaowei@xunlei.com">lixiaowei@xunlei.com</a>
+    </li>
+  </ul>
 
-
-<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
-<div class="navigation" id="nav"><dl><dt>目录</dt><dd><a href="javascript:" title="前言"><b></b>前言</a></dd><dd><a href="javascript:" title="基础篇"><b></b>基础篇</a><ul><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_0" title="文件使用Unicode(UTF-8)编码保存，同时不要使用字节序标记(BOM)"><b></b>文件使用Unicode(UTF-8)编码保存，同时不要使用字节序标记(BOM)</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_1" title="使用Unix格式的行结束符(LF)(建议)"><b></b>使用Unix格式的行结束符(LF)(建议)</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_2" title="所有的php文件省略php闭合标签"><b></b>所有的php文件省略php闭合标签</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_3" title="使用完整的php标记"><b></b>使用完整的php标记</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_4" title="开发环境将php配置中error_reporting应该设置为E_ALL级别的日志。"><b></b>开发环境将php配置中error_reporting应该设置为E_ALL级别的日志。</a></li></ul></dd><dd><a href="javascript:" title="排版篇"><b></b>排版篇</a><ul><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_0" title="使用tab键缩进"><b></b>使用tab键缩进</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_1" title="关键字与其右边的左括号之间有一个空格，而函数名与左括号之间无空格（建议）"><b></b>关键字与其右边的左括号之间有一个空格，而函数名与左括号之间无空格（建议）</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_2" title="大括号位于一行的末尾，与右括号之间有一个空格，结束括号独占一行(建议)"><b></b>大括号位于一行的末尾，与右括号之间有一个空格，结束括号独占一行(建议)</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_3" title="每行一条语句,不要在一行写多条语句"><b></b>每行一条语句,不要在一行写多条语句</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_4" title="函数参数中逗号后面应有一个空格，左右括号和参数之间无空格"><b></b>函数参数中逗号后面应有一个空格，左右括号和参数之间无空格</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_5" title="多行的”=”应对齐"><b></b>多行的”=”应对齐</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_6" title="数组使用分行表述每个”key=&gt;value”,并且每行使用一个tab缩进，最后一个数据项后面的逗号不可省略"><b></b>数组使用分行表述每个”key=&gt;value”,并且每行使用一个tab缩进，最后一个数据项后面的逗号不可省略</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_7" title="在运算符之间使用空格"><b></b>在运算符之间使用空格</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_8" title="使用空行来划分逻辑上相关的代码"><b></b>使用空行来划分逻辑上相关的代码</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_9" title="类、方法、函数、变量、文件命名规则："><b></b>类、方法、函数、变量、文件命名规则：</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_10" title="命名使用有意义的英语单词或单词缩写（建议）"><b></b>命名使用有意义的英语单词或单词缩写（建议）</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_11" title="全局变量一律使用g_开头"><b></b>全局变量一律使用g_开头</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_12" title="常量必须用define表示，命名全部使用大写字母，单词之间以’_’连接"><b></b>常量必须用define表示，命名全部使用大写字母，单词之间以’_’连接</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_13" title="预定义变量一律使用短格式"><b></b>预定义变量一律使用短格式</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_14" title="类的私有成员需加前缀" _""=""><b></b>类的私有成员需加前缀"_"</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_15" title="用正确的反义词组命名具有互斥意义的变量或相反动作的函数等。"><b></b>用正确的反义词组命名具有互斥意义的变量或相反动作的函数等。</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_16" title="代码注释行数不得少于代码量的30%(建议)"><b></b>代码注释行数不得少于代码量的30%(建议)</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_17" title="所有的文件，类，方法和属性都应该以 PHPDoc 风格来进行注释。"><b></b>所有的文件，类，方法和属性都应该以 PHPDoc 风格来进行注释。</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_18" title="Debug要加注释(建议)"><b></b>Debug要加注释(建议)</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_19" title="修改别人的代码需加注释(建议)"><b></b>修改别人的代码需加注释(建议)</a></li></ul></dd><dd><a href="javascript:" title="编码风格篇"><b></b>编码风格篇</a><ul><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_0" title="一直使用单引号除非需要解析变量，如果需要解析变量请使用大括号"><b></b>一直使用单引号除非需要解析变量，如果需要解析变量请使用大括号</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_1" title="每行代码长度不超过80个字符"><b></b>每行代码长度不超过80个字符</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_2" title="每个Function尽量做一件事、尽量短,控制在一屏以内"><b></b>每个Function尽量做一件事、尽量短,控制在一屏以内</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_3" title="每个文件一个类"><b></b>每个文件一个类</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_4" title="If/while等结构体，即使只有一行，也必须加上左右花括号，并且写成多行"><b></b>If/while等结构体，即使只有一行，也必须加上左右花括号，并且写成多行</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_5" title="使用elseif，不使用else if"><b></b>使用elseif，不使用else if</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_6" title="函数参数控制在4个以内，参数过多时可以用数组，对象传递（建议）"><b></b>函数参数控制在4个以内，参数过多时可以用数组，对象传递（建议）</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_7" title="减少if/else嵌套"><b></b>减少if/else嵌套</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_8" title="if语句的条件若较多，应折行，新行以逻辑运算符开始"><b></b>if语句的条件若较多，应折行，新行以逻辑运算符开始</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_9" title="关键字TRUE,FALSE,NULL必须大写(建议)"><b></b>关键字TRUE,FALSE,NULL必须大写(建议)</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_10" title="使用foreach遍历数组"><b></b>使用foreach遍历数组</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_11" title="避免修改for循环内的条件值"><b></b>避免修改for循环内的条件值</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_12" title="逻辑运算符使用 || 和 &amp;&amp;"><b></b>逻辑运算符使用 || 和 &amp;&amp;</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_13" title="对于函数返回值的判断使用===/!=="><b></b>对于函数返回值的判断使用===/!==</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_14" title="不允许在表达式中使用递增/递减运算符"><b></b>不允许在表达式中使用递增/递减运算符</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_15" title="使用iseet()来检测变量初始化"><b></b>使用iseet()来检测变量初始化</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_16" title="三元条件运算符更适用于赋值"><b></b>三元条件运算符更适用于赋值</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_17" title="echo、return等语法结果不要使用()"><b></b>echo、return等语法结果不要使用()</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_18" title="声明对象new之后需要加括号，即使没有参数"><b></b>声明对象new之后需要加括号，即使没有参数</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_19" title="使用require_once、inclued_once代替require、include"><b></b>使用require_once、inclued_once代替require、include</a></li></ul></dd><dd><a href="javascript:" title="数据库篇"><b></b>数据库篇</a><ul><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_0" title="数据表、字段的名称所有字母都要小写，以下划线’_’作为单词分隔符"><b></b>数据表、字段的名称所有字母都要小写，以下划线’_’作为单词分隔符</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_1" title="数据库字段类型尽量小"><b></b>数据库字段类型尽量小</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_2" title="SQL语句关键词大写，并按照逻辑分行"><b></b>SQL语句关键词大写，并按照逻辑分行</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_3" title="UPDATE/DELETE后必须跟WHERE子句"><b></b>UPDATE/DELETE后必须跟WHERE子句</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_4" title="使用EXPLAIN检测SQL语句"><b></b>使用EXPLAIN检测SQL语句</a></li></ul></dd><dd><a href="javascript:" title="安全篇"><b></b>安全篇</a><ul><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_0" title="所有的用户输入都是有害的,对所有从客户端传入的数据都不信任, 需要做判断和过滤,否则可能会受到SQL Injection、XSS等攻击"><b></b>所有的用户输入都是有害的,对所有从客户端传入的数据都不信任, 需要做判断和过滤,否则可能会受到SQL Injection、XSS等攻击</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_1" title="用户的相关输入涉及数据库操作、文件操作等敏感操作时需要对输入做专门的转换。"><b></b>用户的相关输入涉及数据库操作、文件操作等敏感操作时需要对输入做专门的转换。</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_2" title="用户上传的文件的文件名必须重新命名，并限制文件类型"><b></b>用户上传的文件的文件名必须重新命名，并限制文件类型</a></li></ul></dd><dd><a href="javascript:" title="日志打印篇"><b></b>日志打印篇</a><ul><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_0" title="日志类型"><b></b>日志类型</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_1" title="日志格式："><b></b>日志格式：</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_2" title="日志打印位置："><b></b>日志打印位置：</a></li><li><a href="http://web.open.xunlei.com/doc/php.html#sub_title_3" title="使用统一的日志打印类，如"><b></b>使用统一的日志打印类，如</a></li></ul></dd><dd><a href="javascript:" title="其他"><b></b>其他</a></dd></dl></div><embed type="application/xl_chrome_plugin" width="0" height="0" style="visibility: hidden;"></body></html>
+  <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
+</html>
